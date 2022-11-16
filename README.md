@@ -1,5 +1,5 @@
-# Roblox Escape Room
-This game will place you in a room and you must find a way to open the lock into the next room using clues you find. YOu will be able to interact with certain objects that lead to clues that will open other locks and obstacles. This will eventaully lead to opening the main lock. You will then be able to move to the next room. You still will be able to go back to other rooms to use and look at clues. The next room will have the same concept as the first. This will repeat until you beat the game.
+# Zombie Survival Game
+In this game you will spawn in a room and be chased by zombies. You only have a gun and must kill zombies and get their exp to level up you and your gun.You get to choose your upgrade path, but beware as everry 5 levels, a boss will spawn. Your goal is to survive as long as you can and maybe find out how to leave.
 # Graphics
 
 # Documentation
