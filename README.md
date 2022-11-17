@@ -3,3 +3,4 @@ In this game you will spawn in a room and be chased by zombies. You only have a 
 # Graphics
 
 # Documentation
+https://github.com/Evan-Luo-jpg/P2Indiviual/blob/main/img/Individual%20project.jpg
