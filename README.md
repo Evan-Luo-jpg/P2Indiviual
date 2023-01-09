@@ -5,3 +5,6 @@ This is a model for intermolecular forces. You will be able to see how the force
 # Documentation
 ![Flowchart](https://github.com/Evan-Luo-jpg/P2Indiviual/blob/main/img/Flowchart.drawio.png?raw=true)
 ![Class Diagram](https://github.com/Evan-Luo-jpg/P2Indiviual/blob/main/img/Class%20Diagram.drawio.png)
+
+# Resources
+Mr. Gunderson Linked Lists, Basic Data Structures
