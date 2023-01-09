@@ -1,5 +1,5 @@
-# Intramolecular Forces Model
-This is a model for intramolecular forces. You will be able to see how the forces interact with molecules and their strengths, you will also be able to move them around and change which force you want to see. The purpose is to create a visual model for these forces to help in the explanation of them
+# Intermolecular Forces Model
+This is a model for intermolecular forces. You will be able to see how the forces interact with molecules and their strengths, you will also be able to move them around and change which force you want to see. The purpose is to create a visual model for these forces to help in the explanation of them
 # Graphics
 
 # Documentation
