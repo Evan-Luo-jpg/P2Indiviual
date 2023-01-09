@@ -3,4 +3,4 @@ This is a model for intermolecular forces. You will be able to see how the force
 # Graphics
 
 # Documentation
-![Flowchart](https://github.com/Evan-Luo-jpg/P2Indiviual/blob/main/img/Flowchart.drawio.pdf)
+![Flowchart](https://github.com/Evan-Luo-jpg/P2Indiviual/blob/main/img/Flowchart.drawio.png?raw=true)
