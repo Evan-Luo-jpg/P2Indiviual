@@ -1,5 +1,5 @@
-# Zombie Survival Game
-In this game you will spawn in a room and be chased by zombies. You only have a gun and must kill zombies and get their exp to level up you and your gun. You get to choose your upgrade path, but beware as every 5 levels, a boss will spawn. Your goal is to survive as long as you can and maybe find out how to leave.
+# Intramolecular Forces Model
+This is a model for intramolecular forces. You will be able to see how the forces interact with molecules and their strengths, you will also be able to move them around and change which force you want to see. The purpose is to create a visual model for these forces to help in the explanation of them
 # Graphics
 
 # Documentation
