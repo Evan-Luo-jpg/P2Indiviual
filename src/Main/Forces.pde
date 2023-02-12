@@ -2,6 +2,6 @@ class Forces{
   int strength;
 }
 
-int attraction(strength){
-  return atract;
-}
+//int attraction(strength){
+//  return atract;
+//}

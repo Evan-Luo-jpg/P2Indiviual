@@ -4,6 +4,6 @@ class HydrogenBond extends DipoleDipole{
   Boolean N;
 }
 
-int attraction(O,F,N){
-   return s;
-}
+//int attraction(O,F,N){
+//   return s;
+//}

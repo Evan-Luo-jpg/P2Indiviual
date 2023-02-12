@@ -1,3 +1,3 @@
 class LDFs extends Forces{
-  int locationofElec
+  int locationofElec;
 }
