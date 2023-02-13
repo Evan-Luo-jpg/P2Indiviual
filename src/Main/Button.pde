@@ -10,7 +10,7 @@ class Button {
 
   }
 
-  void draw() {
+  void display() {
     shapeMode(CENTER);
     rect(x, y, w, h);
   }

@@ -13,13 +13,14 @@ class Atom {
     this.weight = weight;
   }
   
-  void draw(int x, int y){
+  void display(int x, int y){
     fill(255);
     lights();
     sphereDetail(10);
-    translate(x,y, 0);
+    translate(x, y, 0);
     sphere(size);
     fill(0);
+    translate(0-x, 0-y, 0);
   }
 }
 
