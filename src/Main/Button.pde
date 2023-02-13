@@ -16,8 +16,8 @@ class Button {
   }
 
   //Determine if mouse is being pressed
-  boolean hover(){
-      if (mouseX >= x-(w/2) && mouseX <= x + (w/2) && mouseY >= y-(h/2) && mouseY <= y + (h/2)) {
+  boolean hover(int mx, int my){
+      if (mx >= x-(w/2) && mx <= x + (w/2) && my >= y-(h/2) && my <= y + (h/2)) {
         return true;
       } else {
         return false;

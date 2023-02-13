@@ -9,8 +9,7 @@ ArrayList<H2O> water = new ArrayList<H2O>();
 
 boolean play = false;
 boolean clicked = false;
-boolean dragging1 = false;
-boolean display = false;
+int draggingIndex;
 
 import peasy.*;
 PeasyCam cam;
@@ -31,11 +30,11 @@ void setup() {
 
 void draw() {
   boolean start = startButton.mouseClicked();
-  boolean hoverH2O = H2O.hover();
-  boolean hoverCH4 = CH4.hover();
-  boolean hoverNH3 = NH3.hover();
-  boolean hoverC3H6O = C3H6O.hover();
-  boolean hoverC2H6O = C2H6O.hover();
+  boolean hoverH2O = H2O.hover(mouseX,mouseY);
+  boolean hoverCH4 = CH4.hover(mouseX,mouseY);
+  boolean hoverNH3 = NH3.hover(mouseX,mouseY);
+  boolean hoverC3H6O = C3H6O.hover(mouseX,mouseY);
+  boolean hoverC2H6O = C2H6O.hover(mouseX,mouseY);
   boolean clickedH2O = H2O.mouseClicked();
 
   //Making all them true
@@ -57,9 +56,6 @@ void draw() {
     
     cam.endHUD();
     
-    //H2Omole.mousePressed();
-    //H2Omole.mouseDragged();
-    //H2Omole.mouseReleased();
     //textSize(20);
     //text("Play", width/2, height/2);
 
@@ -67,16 +63,15 @@ void draw() {
     //Display Molecules
     if (clicked) {
       cam.setActive(false);
-      water.add(new H2O());
+    //  water.add(new H2O(mouseX, mouseY));
+    //  for (H2O waterpart: water) {
+    //  print("water display");
+    //}
     } else {
       cam.setActive(true);
     }
 
-    for (int i = 0; i < water.size(); i++) {
-      H2O waterpart = water.get(i);
-      waterpart.mousePressed();
-      waterpart.mouseDragged();
-      waterpart.mouseReleased();
+    for (H2O waterpart: water) {
       waterpart.display();
       print("water display");
     }
@@ -140,7 +135,7 @@ void draw() {
     cam.beginHUD();
     background(0);
     fill(255);
-    boolean hover = startButton.hover();
+    boolean hover = startButton.hover(mouseX, mouseY);
     if (hover) {
       fill(100);
     } else {
@@ -162,7 +157,28 @@ void draw() {
 }
 
 void mouseReleased() {
+  if (clicked){
+  water.add(new H2O(mouseX, mouseY));
+  }
   print("mouse released");
   clicked = false;
-  display = false;
+  dragging = false;
+}
+
+void mousePressed(){
+for (int i = water.size() - 1; i >= 0; i--) {
+  if (H2O.hover(mouseX,mouseY)) {
+    dragging = true;
+    draggingIndex = i;
+    break;
+  }
+}
+}
+
+void mouseDragged() {
+  if (dragging) {
+    H2O w = water.get(draggingIndex);
+    w.x = mouseX;
+    w.y = mouseY;
+}
 }
