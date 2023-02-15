@@ -7,20 +7,21 @@ class Atom {
   float weight;
   float x;
   float y;
+  float z;
   
   Atom(float size, float weight){
     this.size = size;
     this.weight = weight;
   }
   
-  void display(int x, int y){
+  void display(float x, float y, float z){
     fill(255);
     lights();
     sphereDetail(10);
-    translate(x, y, 0);
+    translate(x, y, z);
     sphere(size);
     fill(0);
-    translate(0-x, 0-y, 0);
+    translate(0-x, 0-y, 0-z);
   }
 }
 

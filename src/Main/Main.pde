@@ -6,10 +6,13 @@ Button C3H6O;
 Button C2H6O;
 
 ArrayList<H2O> water = new ArrayList<H2O>();
+ArrayList<CH4> methane = new ArrayList<CH4>();
 
 boolean play = false;
-boolean clicked = false;
+    int i = 0;
 int draggingIndex;
+boolean draggingH2O, draggingCH4;
+boolean clickingH2O, clickingCH4;
 
 import peasy.*;
 PeasyCam cam;
@@ -29,51 +32,59 @@ void setup() {
 }
 
 void draw() {
+  
   boolean start = startButton.mouseClicked();
-  boolean hoverH2O = H2O.hover(mouseX,mouseY);
-  boolean hoverCH4 = CH4.hover(mouseX,mouseY);
-  boolean hoverNH3 = NH3.hover(mouseX,mouseY);
-  boolean hoverC3H6O = C3H6O.hover(mouseX,mouseY);
-  boolean hoverC2H6O = C2H6O.hover(mouseX,mouseY);
+  boolean hoverH2O = H2O.hover(mouseX, mouseY);
+  boolean hoverCH4 = CH4.hover(mouseX, mouseY);
+  boolean hoverNH3 = NH3.hover(mouseX, mouseY);
+  boolean hoverC3H6O = C3H6O.hover(mouseX, mouseY);
+  boolean hoverC2H6O = C2H6O.hover(mouseX, mouseY);
   boolean clickedH2O = H2O.mouseClicked();
+  boolean clickedCH4 = CH4.mouseClicked();
 
   //Making all them true
+  if(clickedH2O){
+      clickingH2O = true;
+    }
+    if(clickedCH4){
+      clickingCH4 = true;
+    }
+    
   if (start) {
     play = true;
   }
-  if (clickedH2O) {
-    clicked = true;
-  }
   if (play) {
     background(0);
-    fill(255);
+    fill(255); 
     cam.beginHUD();
     CH4.display();
     H2O.display();
     NH3.display();
     C3H6O.display();
     C2H6O.display();
-    
-    cam.endHUD();
-    
-    //textSize(20);
-    //text("Play", width/2, height/2);
 
+    cam.endHUD();
+
+    if (!mousePressed) {
+      draggingH2O = false;
+      clickingH2O = false;
+      draggingCH4 = false;
+      clickingCH4 = false;
+    }
 
     //Display Molecules
-    if (clicked) {
+    if (clickingH2O || clickingCH4) {
       cam.setActive(false);
-    //  water.add(new H2O(mouseX, mouseY));
-    //  for (H2O waterpart: water) {
-    //  print("water display");
-    //}
     } else {
       cam.setActive(true);
     }
 
-    for (H2O waterpart: water) {
-      waterpart.display();
-      print("water display");
+    for (H2O waterpart : water) {
+        waterpart.display();
+    }
+    
+    for (CH4 methanepart : methane) {
+        methanepart.display();
     }
 
     //Info for all of the buttons
@@ -121,16 +132,8 @@ void draw() {
       text("C2H6O", width-900, height-150);
     }
     cam.endHUD();
+  print(methane.size());
 
-
-
-
-
-    fill(255);
-    lights();
-    translate(232, 192, 0);
-    sphereDetail(10);
-    sphere(112);
   } else {
     cam.beginHUD();
     background(0);
@@ -148,37 +151,47 @@ void draw() {
     fill(0);
     text("Click to Start", width/2, height/2+200);
     cam.endHUD();
-    //fill(255);
-    //noStroke();
-    //lights();
-    //translate(232, 400, 0);
-    //sphere(112);
+  }
+}
+
+
+void mousePressed() {
+  for (int i = water.size() - 1; i >= 0; i--) {
+    if (H2O.hover(mouseX, mouseY)) {
+      draggingH2O = true;
+      draggingIndex = i;
+      break;
+    }
+  }
+  for (int i = methane.size() - 1; i >= 0; i--) {
+    if (CH4.hover(mouseX, mouseY)) {
+      draggingCH4 = true;
+      draggingIndex = i;
+      break;
+    }
+  }
+}
+
+void mouseDragged() {
+  if (draggingH2O && water.size() == 0) {
+    H2O w = water.get(draggingIndex);
+    w.x = mouseX;
+    w.y = mouseY;
+  }
+  
+  if (draggingCH4 && methane.size() == 0) {
+    CH4 m = methane.get(draggingIndex);
+    m.x = mouseX;
+    m.y = mouseY;
   }
 }
 
 void mouseReleased() {
-  if (clicked){
-  water.add(new H2O(mouseX, mouseY));
-  }
-  print("mouse released");
-  clicked = false;
-  dragging = false;
-}
-
-void mousePressed(){
-for (int i = water.size() - 1; i >= 0; i--) {
-  if (H2O.hover(mouseX,mouseY)) {
-    dragging = true;
-    draggingIndex = i;
-    break;
-  }
-}
-}
-
-void mouseDragged() {
-  if (dragging) {
-    H2O w = water.get(draggingIndex);
-    w.x = mouseX;
-    w.y = mouseY;
-}
+  if (clickingH2O) {
+      water.add(new H2O(mouseX, mouseY));
+    }
+  if(clickingCH4){
+      methane.add(new CH4(mouseX, mouseY, 0));
+    }
+  
 }

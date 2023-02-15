@@ -1,8 +1,8 @@
 class Button {
-  int x, y, w, h;
+  float x, y, w, h;
   color colr;
 
-  Button(int x, int y, int w, int h) {
+  Button(float x, float y, float w, float h) {
     this.x = x;
     this.y = y;
     this.w = w;
@@ -16,7 +16,7 @@ class Button {
   }
 
   //Determine if mouse is being pressed
-  boolean hover(int mx, int my){
+  boolean hover(float mx, float my){
       if (mx >= x-(w/2) && mx <= x + (w/2) && my >= y-(h/2) && my <= y + (h/2)) {
         return true;
       } else {
