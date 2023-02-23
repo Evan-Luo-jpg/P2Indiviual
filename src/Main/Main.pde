@@ -7,12 +7,16 @@ Button C2H6O;
 
 ArrayList<H2O> water = new ArrayList<H2O>();
 ArrayList<CH4> methane = new ArrayList<CH4>();
+ArrayList<NH3> ammonia = new ArrayList<NH3>();
+ArrayList<C3H6O> acetone = new ArrayList<C3H6O>();
+
 
 boolean play = false;
-    int i = 0;
+int i = 0;
 int draggingIndex;
-boolean draggingH2O, draggingCH4;
-boolean clickingH2O, clickingCH4;
+boolean draggingH2O, draggingCH4, draggingNH3, draggingC3H6O;
+boolean clickingH2O, clickingCH4, clickingNH3, clickingC3H6O;
+
 
 import peasy.*;
 PeasyCam cam;
@@ -32,7 +36,7 @@ void setup() {
 }
 
 void draw() {
-  
+  noStroke();
   boolean start = startButton.mouseClicked();
   boolean hoverH2O = H2O.hover(mouseX, mouseY);
   boolean hoverCH4 = CH4.hover(mouseX, mouseY);
@@ -41,21 +45,29 @@ void draw() {
   boolean hoverC2H6O = C2H6O.hover(mouseX, mouseY);
   boolean clickedH2O = H2O.mouseClicked();
   boolean clickedCH4 = CH4.mouseClicked();
+  boolean clickedNH3 = NH3.mouseClicked();
+  boolean clickedC3H6O = C3H6O.mouseClicked();
 
   //Making all them true
-  if(clickedH2O){
-      clickingH2O = true;
-    }
-    if(clickedCH4){
-      clickingCH4 = true;
-    }
-    
+  if (clickedH2O) {
+    clickingH2O = true;
+  }
+  if (clickedCH4) {
+    clickingCH4 = true;
+  }
+  if (clickedNH3) {
+    clickingNH3 = true;
+  }
+  if (clickedC3H6O) {
+    clickingC3H6O = true;
+  }
+
   if (start) {
     play = true;
   }
   if (play) {
     background(0);
-    fill(255); 
+    fill(255);
     cam.beginHUD();
     CH4.display();
     H2O.display();
@@ -70,21 +82,42 @@ void draw() {
       clickingH2O = false;
       draggingCH4 = false;
       clickingCH4 = false;
+      draggingNH3 = false;
+      clickingNH3 = false;
+      draggingC3H6O = false;
+      clickingC3H6O = false;
     }
 
     //Display Molecules
-    if (clickingH2O || clickingCH4) {
+    if (clickingH2O || clickingCH4 || clickingNH3 || clickingC3H6O) {
       cam.setActive(false);
     } else {
       cam.setActive(true);
     }
 
     for (H2O waterpart : water) {
-        waterpart.display();
+      //H2O w = water.get(draggingIndex);
+      //w.x = w.posX;
+      //w.y = w.posY;
+      waterpart.moveCenter(1000, 1000);
+      waterpart.update();
+      waterpart.display();
+      //if(water.size() >= 3){
+      //  H2O w = water.get(draggingIndex-1);       
+      //  waterpart.moveCenter(w.x,w.y);
+      //}
+    }
+
+    for (CH4 methanepart : methane) {
+      methanepart.display();
+    }
+
+    for (NH3 ammoniapart : ammonia) {
+      ammoniapart.display();
     }
     
-    for (CH4 methanepart : methane) {
-        methanepart.display();
+    for (C3H6O acetonepart : acetone) {
+      acetonepart.display();
     }
 
     //Info for all of the buttons
@@ -132,8 +165,7 @@ void draw() {
       text("C2H6O", width-900, height-150);
     }
     cam.endHUD();
-  print(methane.size());
-
+    //print(methane.size());
   } else {
     cam.beginHUD();
     background(0);
@@ -170,6 +202,21 @@ void mousePressed() {
       break;
     }
   }
+
+  for (int i = ammonia.size() - 1; i >= 0; i--) {
+    if (NH3.hover(mouseX, mouseY)) {
+      draggingNH3 = true;
+      draggingIndex = i;
+      break;
+    }
+  }
+  for (int i = acetone.size() - 1; i >= 0; i--) {
+    if (C3H6O.hover(mouseX, mouseY)) {
+      draggingC3H6O = true;
+      draggingIndex = i;
+      break;
+    }
+  }
 }
 
 void mouseDragged() {
@@ -178,9 +225,19 @@ void mouseDragged() {
     w.x = mouseX;
     w.y = mouseY;
   }
-  
+
   if (draggingCH4 && methane.size() == 0) {
     CH4 m = methane.get(draggingIndex);
+    m.x = mouseX;
+    m.y = mouseY;
+  }
+  if (draggingNH3 && ammonia.size() == 0) {
+    NH3 m = ammonia.get(draggingIndex);
+    m.x = mouseX;
+    m.y = mouseY;
+  }
+  if (draggingC3H6O && acetone.size() == 0) {
+    C3H6O m = acetone.get(draggingIndex);
     m.x = mouseX;
     m.y = mouseY;
   }
@@ -188,10 +245,16 @@ void mouseDragged() {
 
 void mouseReleased() {
   if (clickingH2O) {
-      water.add(new H2O(mouseX, mouseY));
-    }
-  if(clickingCH4){
-      methane.add(new CH4(mouseX, mouseY, 0));
-    }
+    water.add(new H2O(mouseX, mouseY));
+  }
+  if (clickingCH4) {
+    methane.add(new CH4(mouseX, mouseY, 0));
+  }
+  if (clickingNH3) {
+    ammonia.add(new NH3(mouseX, mouseY, 0));
+  }
   
+  if (clickingC3H6O) {
+    acetone.add(new C3H6O(mouseX, mouseY, 0));
+  }
 }
