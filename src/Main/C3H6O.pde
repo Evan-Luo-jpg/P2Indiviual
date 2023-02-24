@@ -4,7 +4,7 @@ class C3H6O extends Molecule {
   float x, y, z;
 
   C3H6O(float x_, float y_, float z_) {
-    super(x_,y_);
+    super();
     x = x_;
     y = y_;
     z = z_;

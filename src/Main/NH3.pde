@@ -5,7 +5,7 @@ class NH3 extends Molecule {
   float x, y, z;
   
   NH3(float x_, float y_, float z_) {
-    super(1000,1000);
+    super();
     x = x_;
     y = y_;
     z = z_;
@@ -17,9 +17,9 @@ class NH3 extends Molecule {
 
 
   void display() {
-    hydrogen1.display(x-25.0, y-20.0, z-5.0);
-    hydrogen1.display(x+25.0, y-20.0, z-5.0);
-    hydrogen1.display(x, y+25.0, z-5.0);
+    hydrogen1.display(x+22.0, y+5.0, z-30.0);
+    hydrogen1.display(x+22.0, y+5.0, z+30.0);
+    hydrogen1.display(x-30, y+5, z);
     nitrogen.display(x, y, 0);
   }
 

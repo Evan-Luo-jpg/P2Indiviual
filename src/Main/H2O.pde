@@ -3,13 +3,13 @@ Atom oxygen;
 
 
 
+
 class H2O extends Molecule {
 
   float x, y;
 
   H2O(float x_, float y_) {
-    super(x_,y_);
-    print(x_);
+    super();
     print("MouseX: " + mouseX);
     x = x_;
     y = y_;
@@ -20,9 +20,11 @@ class H2O extends Molecule {
 
 
   void display() {
+    
     hydrogen1.display(x-25.0, y+25.0, 0);
     hydrogen1.display(x+25.0, y+25.0, 0);
     oxygen.display(x, y, 0);
+    
   }
 
 }
