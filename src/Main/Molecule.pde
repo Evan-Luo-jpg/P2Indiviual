@@ -1,16 +1,11 @@
-//int duration = 1000; // 1 second
-//ArrayList<PVector> startingPositions = new ArrayList<PVector>();
+
 PVector location, target;
 
 class Molecule {
   float xl, yl, speedX, speedY, rotation;
-  float speed = 1;
-  //long startTime;
+  float speed = 5;
   
   Molecule(){
-    //xt = startX;
-    //yt = startY;
-    //startingPositions.add(new PVector(x, y));
   }
   
   void moveCenter(float startX, float startY, float targetX, float targetY){
@@ -22,15 +17,13 @@ class Molecule {
     //rotation = PVector.angleBetween(target, location);
     speedX = cos(rotation/180*PI)*speed;
     speedY = sin(rotation/180*PI)*speed;
-    if(PVector.dist(location, target) >= 5){
+    if(PVector.dist(location, target) >= 10){
       xl = location.x - speedX;
       yl = location.y - speedY;
     }
     println("Target: "+target);
     println("Location: "+location);
     println("Rotation: "+rotation);
-    //startingPositions.add(new PVector(x, y));
-    //startTime = millis();
   }
   
   

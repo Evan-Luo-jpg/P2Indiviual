@@ -97,12 +97,16 @@ void draw() {
     if (water.size() == 2) {
       H2O w1 = water.get(0);
       H2O w2 = water.get(1);
-      w1.moveCenter(w2.x, w2.y, w1.x+25, w1.y+60);
+      w1.moveCenter(w2.x, w2.y, w1.x+125, w1.y+300);
       w2.x = w1.xl;
       w2.y = w1.yl;
-      
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("There is hydrogen bond between the Oxygen and the Hydrogen. This is due to the fact that Oxygen is extremely electronegative, making the molecule very polar", width-150, 0+150, 300, 300);
+      cam.endHUD();
     }
-    
+
     if (methane.size() == 2) {
       cam.beginHUD();
       fill(255);
@@ -110,25 +114,76 @@ void draw() {
       text("These are 2 non-polar molecules", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
-    
+
     if (ammonia.size() == 2) {
-      NH3 n1 = ammonia.get(0);
-      NH3 n2 = ammonia.get(1);
-      n1.moveCenter(n2.x, n2.y, n1.x-40, n1.y+30);
-      n2.x = n1.xl;
-      n2.y = n1.yl;
+      NH3 a1 = ammonia.get(0);
+      NH3 a2 = ammonia.get(1);
+      a1.moveCenter(a2.x, a2.y, a1.x-150, a1.y+200);
+      a2.x = a1.xl;
+      a2.y = a1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("There is hydrogen bond between the Nitrogen and the Hydrogen. This is due to the fact that Nitrogen is extremely electronegative, making the molecule very polar", width-150, 0+150, 300, 300);
+      cam.endHUD();
     }
-    
-    if (ammonia.size() == 2) {
-      
+
+    if (acetone.size() == 2) {
+      C3H6O c1 = acetone.get(0);
+      C3H6O c2 = acetone.get(1);
+      c1.moveCenter(c2.x, c2.y, c1.x-380, c1.y+380);
+      c2.x = c1.xl;
+      c2.y = c1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("There is dipole dipole bond between the Oxygen and the Hydrogen. This is due to the fact that Oxygen is extremely electronegative, making the molecule very polar, but there is not hydrogen attatched to the Oxygen so it is not a hydrogen bond", width-150, 0+150, 300, 300);
+      cam.endHUD();
     }
-    
+
+    if (water.size() == 1 && methane.size() == 1) {
+      H2O w1 = water.get(0);
+      CH4 m1 = methane.get(0);
+      w1.moveCenter(m1.x, m1.y, w1.x, w1.y-300);
+      m1.x = w1.xl;
+      m1.y = w1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("", width-150, 0+150, 300, 300);
+      cam.endHUD();
+    }
+
+    if (water.size() == 1 && ammonia.size() == 1) {
+      H2O w1 = water.get(0);
+      NH3 a1 = ammonia.get(0);
+      w1.moveCenter(a1.x, a1.y, w1.x+150, w1.y-200);
+      a1.x = w1.xl;
+      a1.y = w1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("", width-150, 0+150, 300, 300);
+      cam.endHUD();
+    }
+
+    if (water.size() == 1 && acetone.size() == 1) {
+      H2O w1 = water.get(0);
+      C3H6O c1 = acetone.get(0);
+      w1.moveCenter(c1.x, c1.y, w1.x+125, w1.y+500);
+      c1.x = w1.xl;
+      c1.y = w1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("", width-150, 0+150, 300, 300);
+      cam.endHUD();
+    }
+
     for (H2O waterpart : water) {
       waterpart.display();
     }
-    if (water.size() > 2) {
-      water.remove(0);
-    }
+
     for (CH4 methanepart : methane) {
       methanepart.display();
     }
@@ -178,7 +233,7 @@ void draw() {
       text("C3H6O", width-700, height-150);
     }
     cam.endHUD();
-    //print(methane.size());
+
   } else {
     cam.beginHUD();
     background(0);
@@ -257,18 +312,19 @@ void mouseDragged() {
 }
 
 void mouseReleased() {
-  if (clickingH2O) {
-    water.add(new H2O(mouseX, mouseY));
-    //startingPositions.add(new PVector(mouseX, mouseY));
-  }
-  if (clickingCH4) {
-    methane.add(new CH4(mouseX, mouseY, 0));
-  }
-  if (clickingNH3) {
-    ammonia.add(new NH3(mouseX, mouseY, 0));
-  }
+  if (water.size() + methane.size() + ammonia.size() + acetone.size() < 2) {
+    if (clickingH2O) {
+      water.add(new H2O(mouseX, mouseY));
+    }
+    if (clickingCH4) {
+      methane.add(new CH4(mouseX, mouseY, 0));
+    }
+    if (clickingNH3) {
+      ammonia.add(new NH3(mouseX, mouseY, 0));
+    }
 
-  if (clickingC3H6O) {
-    acetone.add(new C3H6O(mouseX, mouseY, 0));
+    if (clickingC3H6O) {
+      acetone.add(new C3H6O(mouseX, mouseY, 0));
+    }
   }
 }
