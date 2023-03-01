@@ -158,7 +158,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(20);
-      text("", width-150, 0+150, 300, 300);
+      text("This is a dipole induced dipole, as methane which is usually non-polar becomes a dipole when it is close to H2O", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
 
@@ -171,7 +171,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(20);
-      text("", width-150, 0+150, 300, 300);
+      text("This is a hydrogen bond between the oxygen and the hydrogen as the oxygen has hydrogen attached to it making it highly polar", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
 
@@ -184,7 +184,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(20);
-      text("", width-150, 0+150, 300, 300);
+      text("This is a dipole dipole as it is between 2 polar molecules", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
     
@@ -197,7 +197,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(20);
-      text("", width-150, 0+150, 300, 300);
+      text("This is a dipole induced dipole as methane becomes a polar molecule due to the ammonia", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
     
@@ -210,7 +210,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(20);
-      text("", width-150, 0+150, 300, 300);
+      text("This is a dipole dipole interaction as it is between two polar molecules", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
     
@@ -223,7 +223,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(20);
-      text("", width-150, 0+150, 300, 300);
+      text("This is a dipole induced molecule as methane which is non-polar, becomes a dipole due to the acetone", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
     
