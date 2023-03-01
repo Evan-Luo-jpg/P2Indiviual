@@ -3,7 +3,7 @@ Button CH4;
 Button H2O;
 Button NH3;
 Button C3H6O;
-Button Update;
+Button clear;
 
 ArrayList<H2O> water = new ArrayList<H2O>();
 ArrayList<CH4> methane = new ArrayList<CH4>();
@@ -16,10 +16,10 @@ boolean play = false;
 int i = 0;
 int draggingIndex;
 boolean draggingH2O, draggingCH4, draggingNH3, draggingC3H6O;
-boolean clickingH2O, clickingCH4, clickingNH3, clickingC3H6O;
+boolean clickingH2O, clickingCH4, clickingNH3, clickingC3H6O, clickingReset;
 
-import de.looksgood.ani.*;
 import peasy.*;
+
 PeasyCam cam;
 
 void setup() {
@@ -32,6 +32,7 @@ void setup() {
   H2O = new Button(width-300, height-150, 200, 300);
   NH3 = new Button(width-500, height-150, 200, 300);
   C3H6O = new Button(width-700, height-150, 200, 300);
+  clear = new Button(100, height-150, 200, 300);
   cam = new PeasyCam(this, width/2, height/2, 0, 1000);
 }
 
@@ -42,12 +43,17 @@ void draw() {
   boolean hoverCH4 = CH4.hover(mouseX, mouseY);
   boolean hoverNH3 = NH3.hover(mouseX, mouseY);
   boolean hoverC3H6O = C3H6O.hover(mouseX, mouseY);
+  boolean hoverReset = clear.hover(mouseX, mouseY);
   boolean clickedH2O = H2O.mouseClicked();
   boolean clickedCH4 = CH4.mouseClicked();
   boolean clickedNH3 = NH3.mouseClicked();
   boolean clickedC3H6O = C3H6O.mouseClicked();
+  boolean reset = clear.mouseClicked();
 
   //Making all them true
+  if(reset){
+    clickingReset = true;
+  }
   if (clickedH2O) {
     clickingH2O = true;
   }
@@ -72,6 +78,7 @@ void draw() {
     H2O.display();
     NH3.display();
     C3H6O.display();
+    clear.display();
 
     cam.endHUD();
 
@@ -84,6 +91,7 @@ void draw() {
       clickingNH3 = false;
       draggingC3H6O = false;
       clickingC3H6O = false;
+      clickingReset = false;
     }
 
     //Display Molecules
@@ -179,7 +187,46 @@ void draw() {
       text("", width-150, 0+150, 300, 300);
       cam.endHUD();
     }
-
+    
+    if (ammonia.size() == 1 && methane.size() == 1) {
+      NH3 a1 = ammonia.get(0);
+      CH4 m1 = methane.get(0);
+      a1.moveCenter(m1.x, m1.y, a1.x, a1.y-300);
+      m1.x = a1.xl;
+      m1.y = a1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("", width-150, 0+150, 300, 300);
+      cam.endHUD();
+    }
+    
+    if (ammonia.size() == 1 && acetone.size() == 1) {
+      NH3 a1 = ammonia.get(0);
+      C3H6O c1 = acetone.get(0);
+      a1.moveCenter(c1.x, c1.y, a1.x-150, a1.y+400);
+      c1.x = a1.xl;
+      c1.y = a1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("", width-150, 0+150, 300, 300);
+      cam.endHUD();
+    }
+    
+    if (methane.size() == 1 && acetone.size() == 1) {
+      CH4 m1 = methane.get(0);
+      C3H6O c1 = acetone.get(0);
+      m1.moveCenter(c1.x, c1.y, m1.x, m1.y+500);
+      c1.x = m1.xl;
+      c1.y = m1.yl;
+      cam.beginHUD();
+      fill(255);
+      textSize(20);
+      text("", width-150, 0+150, 300, 300);
+      cam.endHUD();
+    }
+    
     for (H2O waterpart : water) {
       waterpart.display();
     }
@@ -200,6 +247,14 @@ void draw() {
     cam.beginHUD();
     textAlign(CENTER);
     fill(0);
+    if(hoverReset){
+      textSize(30);
+      String clean = "Clicking this will clear everything off the screen";
+      text(clean, 100, height-150, 200, 300);
+    }else{
+      textSize(60);
+      text("Reset", 100, height-150);
+    }
     if (hoverCH4) {
       textSize(30);
       String CH4 = "This is a chemical that is most commonly known as methane.";
@@ -326,5 +381,11 @@ void mouseReleased() {
     if (clickingC3H6O) {
       acetone.add(new C3H6O(mouseX, mouseY, 0));
     }
+  }
+  if(clickingReset){
+    water.clear();
+    methane.clear();
+    ammonia.clear();
+    acetone.clear();
   }
 }
