@@ -27,7 +27,7 @@ void setup() {
   textSize(50);
   textAlign(CENTER);
   rectMode(CENTER);
-  startButton = new Button(width/2, height/2+200, 400, 200);
+  startButton = new Button(width/2, height/2+400, 400, 200);
   CH4 = new Button(width-100, height-150, 200, 300);
   H2O = new Button(width-300, height-150, 200, 300);
   NH3 = new Button(width-500, height-150, 200, 300);
@@ -301,16 +301,22 @@ void draw() {
     }
     startButton.display();
     fill(255);
-    text("Welcome to the intermolecular forces model", width/2, height/2);
-    text("By Evan Luo", width/2, height/2+50);
+    textAlign(CENTER);
+    rectMode(CENTER);
+    textSize(60);
+    text("Welcome to the intermolecular forces model", width/2, height/2-230);
+    text("By Evan Luo", width/2, height/2-180);
+    textSize(20);
+    text("How to play: Hover over any molecule for a description of it and then you can click and drag to position it onto the screen. If you drag and drop another molecule to the screen, you can see how it interacts with the other molecule as well a description the intermolecular force. There is a maximum limit of 2 molecules on the screen. Use right click and drag to roate your camera around the molecule. Use the scroll wheel to zoom in and out. If you would like to reset your camera back to it's starting position, double click, it needs to be in its starting position if you want to create more molecules", width/2, height/2+100,1500,300);
     fill(0);
-    text("Click to Start", width/2, height/2+200);
+    text("Click to Start", width/2, height/2+400);
     cam.endHUD();
   }
 }
 
 
 void mousePressed() {
+  cam.reset();
   for (int i = water.size() - 1; i >= 0; i--) {
     if (H2O.hover(mouseX, mouseY)) {
       draggingH2O = true;
