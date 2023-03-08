@@ -70,6 +70,9 @@ void draw() {
   if (start) {
     play = true;
   }
+  //if(){
+    
+  //}
   if (play) {
     background(0);
     fill(255);
@@ -316,7 +319,6 @@ void draw() {
 
 
 void mousePressed() {
-  cam.reset();
   for (int i = water.size() - 1; i >= 0; i--) {
     if (H2O.hover(mouseX, mouseY)) {
       draggingH2O = true;
