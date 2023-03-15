@@ -20,9 +20,6 @@ class Molecule {
       xl = location.x - speedX;
       yl = location.y - speedY;
     }
-    println("Target: "+target);
-    println("Location: "+location);
-    println("Rotation: "+rotation);
   }
   
   
