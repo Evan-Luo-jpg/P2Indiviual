@@ -307,7 +307,7 @@ void draw() {
     text("Welcome to the intermolecular forces model", width/2, height/2-230);
     text("By Evan Luo", width/2, height/2-180);
     textSize(20);
-    text("How to play: Hover over any molecule for a description of it and then you can click and drag to position it onto the screen. If you drag and drop another molecule to the screen, you can see how it interacts with the other molecule as well a description the intermolecular force. There is a maximum limit of 2 molecules on the screen. Use right click and drag to roate your camera around the molecule. Use the scroll wheel to zoom in and out. If you would like to reset your camera back to it's starting position, double click, it needs to be in its starting position if you want to create more molecules", width/2, height/2+100,1500,300);
+    text("How to play: Hover over any molecule for a description of it and then you can click and drag to position it onto the screen. If you drag and drop another molecule to the screen, you can see how it interacts with the other molecule as well a description the intermolecular force. There is a maximum limit of 2 molecules on the screen. Use right click and drag to roate your camera around the molecule and middle mouse to move side to side. Use the scroll wheel to zoom in and out. If you would like to reset your camera back to it's starting position, double click, it needs to be in its starting position if you want to create more molecules", width/2, height/2+100,1500,300);
     fill(0);
     textSize(60);
     text("Click to Start", width/2, height/2+400);
