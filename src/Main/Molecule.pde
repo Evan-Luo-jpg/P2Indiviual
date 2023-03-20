@@ -1,3 +1,4 @@
+//The super class for the other molecules for orientation and movement
 
 PVector location, target;
 
