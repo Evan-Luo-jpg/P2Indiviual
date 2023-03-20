@@ -1,7 +1,7 @@
+//H2O molecule display
+
 Atom hydrogen1;
 Atom oxygen;
-
-
 
 
 class H2O extends Molecule {
