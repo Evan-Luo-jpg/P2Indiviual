@@ -1,3 +1,5 @@
+//NH3 molecule display
+
 Atom nitrogen;
 
 class NH3 extends Molecule {

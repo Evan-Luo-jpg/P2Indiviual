@@ -70,9 +70,7 @@ void draw() {
   if (start) {
     play = true;
   }
-  //if(){
-    
-  //}
+  
   if (play) {
     background(0);
     fill(255);
@@ -103,7 +101,6 @@ void draw() {
     } else {
       cam.setActive(true);
     }
-    println("MouseX: "+ mouseX);
 
     if (water.size() == 2) {
       H2O w1 = water.get(0);
@@ -113,16 +110,16 @@ void draw() {
       w2.y = w1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("There is hydrogen bond between the Oxygen and the Hydrogen. This is due to the fact that Oxygen is extremely electronegative, making the molecule very polar", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("There is hydrogen bond between the Oxygen and the Hydrogen. This is due to the fact that Oxygen is extremely electronegative, making the molecule very polar", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
 
     if (methane.size() == 2) {
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("These are 2 non-polar molecules", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("These are 2 non-polar molecules", width-150, 0+200, 400, 300);
       cam.endHUD();
     }
 
@@ -134,8 +131,8 @@ void draw() {
       a2.y = a1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("There is hydrogen bond between the Nitrogen and the Hydrogen. This is due to the fact that Nitrogen is extremely electronegative, making the molecule very polar", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("There is hydrogen bond between the Nitrogen and the Hydrogen. This is due to the fact that Nitrogen is extremely electronegative, making the molecule very polar", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
 
@@ -147,8 +144,8 @@ void draw() {
       c2.y = c1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("There is dipole dipole bond between the Oxygen and the Hydrogen. This is due to the fact that Oxygen is extremely electronegative, making the molecule very polar, but there is not hydrogen attatched to the Oxygen so it is not a hydrogen bond", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("There is dipole dipole bond between the Oxygen and the Hydrogen. This is due to the fact that Oxygen is extremely electronegative, making the molecule very polar, but there is not hydrogen attatched to the Oxygen so it is not a hydrogen bond", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
 
@@ -160,8 +157,8 @@ void draw() {
       m1.y = w1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("This is a dipole induced dipole, as methane which is usually non-polar becomes a dipole when it is close to H2O", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("There is a dipole induced dipole between the Oxygen and the Hydrogen as methane which is usually non-polar becomes a dipole when it is close to H2O", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
 
@@ -173,8 +170,8 @@ void draw() {
       a1.y = w1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("This is a hydrogen bond between the oxygen and the hydrogen as the oxygen has hydrogen attached to it making it highly polar", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("There is a hydrogen bond between the Oxygen and the hydrogen as the Oxygen has Hydrogen attached to it making it highly polar", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
 
@@ -186,8 +183,8 @@ void draw() {
       c1.y = w1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("This is a dipole dipole as it is between 2 polar molecules", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("This is a dipole dipole as it is between 2 polar molecules", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
@@ -199,8 +196,8 @@ void draw() {
       m1.y = a1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("This is a dipole induced dipole as methane becomes a polar molecule due to the ammonia", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("This is a dipole induced dipole as methane becomes a polar molecule due to the ammonia", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
@@ -212,8 +209,8 @@ void draw() {
       c1.y = a1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("This is a dipole dipole interaction as it is between two polar molecules", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("This is a dipole dipole interaction as it is between two polar molecules", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
@@ -225,8 +222,8 @@ void draw() {
       c1.y = m1.yl;
       cam.beginHUD();
       fill(255);
-      textSize(20);
-      text("This is a dipole induced molecule as methane which is non-polar, becomes a dipole due to the acetone", width-150, 0+150, 300, 300);
+      textSize(30);
+      text("This is a dipole induced molecule as methane which is non-polar, becomes a dipole due to the acetone", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
@@ -310,8 +307,9 @@ void draw() {
     text("Welcome to the intermolecular forces model", width/2, height/2-230);
     text("By Evan Luo", width/2, height/2-180);
     textSize(20);
-    text("How to play: Hover over any molecule for a description of it and then you can click and drag to position it onto the screen. If you drag and drop another molecule to the screen, you can see how it interacts with the other molecule as well a description the intermolecular force. There is a maximum limit of 2 molecules on the screen. Use right click and drag to roate your camera around the molecule. Use the scroll wheel to zoom in and out. If you would like to reset your camera back to it's starting position, double click, it needs to be in its starting position if you want to create more molecules", width/2, height/2+100,1500,300);
+    text("How to play: Hover over any molecule for a description of it and then you can click and drag to position it onto the screen. If you drag and drop another molecule to the screen, you can see how it interacts with the other molecule as well a description the intermolecular force. There is a maximum limit of 2 molecules on the screen. Use right click and drag to rotate your camera around the molecule and middle mouse to move side to side. Use the scroll wheel to zoom in and out. If you would like to reset your camera back to it's starting position, double click, it needs to be in its starting position if you want to create more molecules", width/2, height/2+100,1500,300);
     fill(0);
+    textSize(60);
     text("Click to Start", width/2, height/2+400);
     cam.endHUD();
   }
@@ -319,7 +317,18 @@ void draw() {
 
 
 void mousePressed() {
-  cam.reset();
+  if (H2O.hover(mouseX, mouseY)) {
+    cam.reset();
+  }
+  if (NH3.hover(mouseX, mouseY)) {
+    cam.reset();
+  }
+  if (CH4.hover(mouseX, mouseY)) {
+    cam.reset();
+  }
+  if (C3H6O.hover(mouseX, mouseY)) {
+    cam.reset();
+  }
   for (int i = water.size() - 1; i >= 0; i--) {
     if (H2O.hover(mouseX, mouseY)) {
       draggingH2O = true;

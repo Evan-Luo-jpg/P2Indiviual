@@ -1,3 +1,5 @@
+//Button logic and display
+
 class Button {
   float x, y, w, h;
   color colr;

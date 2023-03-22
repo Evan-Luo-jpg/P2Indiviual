@@ -1,6 +1,4 @@
-// polar bonds have a difference of 0.4 to 1.7
-// lower than 0.4 is more covalent
-// higher is more ionic
+// Class for the individual atoms
 
 class Atom {
   PShape atom;

@@ -1,3 +1,5 @@
+//CH4 molecule display
+
 Atom carbon;
 
 class CH4 extends Molecule {

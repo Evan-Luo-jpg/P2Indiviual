@@ -1,7 +1,7 @@
+//H2O molecule display
+
 Atom hydrogen1;
 Atom oxygen;
-
-
 
 
 class H2O extends Molecule {
@@ -10,7 +10,6 @@ class H2O extends Molecule {
 
   H2O(float x_, float y_) {
     super();
-    print("MouseX: " + mouseX);
     x = x_;
     y = y_;
     hydrogen1 = new Atom(60.0, 2.20, "Hydrogen.jpg");

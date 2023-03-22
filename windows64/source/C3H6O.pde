@@ -1,3 +1,5 @@
+//C3H6O molecule display
+
 
 class C3H6O extends Molecule {
 
