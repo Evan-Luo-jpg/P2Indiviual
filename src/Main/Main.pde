@@ -184,7 +184,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(30);
-      text("This is a dipole dipole as it is between 2 polar molecules", width-200, 0+150, 400, 300);
+      text("There is a dipole dipole bond between the Hydrogen and Oxygen as they are both polar molecules", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
@@ -197,7 +197,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(30);
-      text("This is a dipole induced dipole as methane becomes a polar molecule due to the ammonia", width-200, 0+150, 400, 300);
+      text("There is a dipole induced dipole bond between the Hydrogen and Nitrogen as methane becomes a dipole molecule due to the ammonia", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
@@ -210,7 +210,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(30);
-      text("There is a dipole dipole bond between the hydrogen and oxygen as they are both polar molecules", width-200, 0+150, 400, 300);
+      text("There is a dipole dipole bond between the Hydrogen and Oxygen as they are both polar molecules", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
@@ -223,7 +223,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(30);
-      text("This is a dipole induced molecule as methane which is non-polar, becomes a dipole due to the acetone", width-200, 0+150, 400, 300);
+      text("There is a dipole induced bond between the Oxygen and Hydrogen as methane becomes a dipole due to the acetone", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
