@@ -210,7 +210,7 @@ void draw() {
       cam.beginHUD();
       fill(255);
       textSize(30);
-      text("This is a dipole dipole interaction as it is between two polar molecules", width-200, 0+150, 400, 300);
+      text("There is a dipole dipole bond between the hydrogen and oxygen as they are both polar molecules", width-200, 0+150, 400, 300);
       cam.endHUD();
     }
     
