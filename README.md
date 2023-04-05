@@ -8,3 +8,6 @@ This is a model for intermolecular forces. You will be able to see how the force
 
 # Resources
 Mr. Gunderson Linked Lists, Basic Data Structures
+
+
+https://clastify.com/ia/computer-science/6413955ce1d1550013663ab0
