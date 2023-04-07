@@ -7,8 +7,5 @@ This is a model for intermolecular forces. You will be able to see how the force
 ![Class Diagram](https://github.com/Evan-Luo-jpg/P2Indiviual/blob/main/img/Class%20Diagram.drawio%20(2).png?raw=true)
 
 # Resources
-Mr. Gunderson Linked Lists, Basic Data Structures
+Mr. Gunderson, Array Lists, Basic Data Structures, enhanced for loops, PVectors, Inheritance, Libraries
 
-
-https://clastify.com/ia/computer-science/6413955ce1d1550013663ab0
-https://ib.compscihub.net/internal-assessment/criterion-e
